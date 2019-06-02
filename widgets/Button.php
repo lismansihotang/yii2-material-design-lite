@@ -7,12 +7,11 @@
  * @resource https://getmdl.io/components/index.html#buttons-section
  */
 
-use yii\base\Widget;
 use yii\helpers\Html;
 
 namespace lismansihotang\mdl\widgets;
 
-class Button extends Widget
+class Button extends lismansihotang\mdl\helpers\Widget
 {
     public $options;
     public $content;
