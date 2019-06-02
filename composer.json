@@ -1,0 +1,21 @@
+{
+    "name": "lismansihotang/yii2-material-design-lite",
+    "description": "Material Design Lite for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lisman Sihotang",
+            "email": "lisman.sihotang@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lismansihotang\\mdl\\": ""
+        }
+    }
+}
