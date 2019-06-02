@@ -19,11 +19,5 @@
         "psr-4": {
             "lismansihotang\\mdl\\": ""
         }
-    },
-    "repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/lismansihotang/yii2-material-design-lite"
     }
-]
 }
