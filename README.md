@@ -27,6 +27,13 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+Asset
+-----
+register this asset on your own layout.
+```php
+<?php use lismansihotang\mdl\assets\BaseAsset; ?>
+<?php BaseAsset::register($this); ?>
+
 Button
 -----
 ```php
