@@ -17,5 +17,11 @@
         "psr-4": {
             "lismansihotang\\mdl\\": ""
         }
+    },
+    "repositories": [
+    {
+        "type": "composer",
+        "url": "https://asset-packagist.org"
     }
+]
 }
