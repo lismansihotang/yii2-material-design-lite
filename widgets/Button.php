@@ -41,6 +41,9 @@ class Button extends \yii\base\Widget
      */
     public $submit = false;
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->options['class'] = implode(' ', $this->setClass());
@@ -53,6 +56,9 @@ class Button extends \yii\base\Widget
         return \yii\helpers\Html::tag(($this->submit) ? 'submit' : 'button', $this->content['label'], $this->options);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function getEffect($id)
     {
         $arrEffect = [
@@ -68,6 +74,9 @@ class Button extends \yii\base\Widget
         return $effect;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function setClass()
     {
         $class = $this->baseClass();
@@ -77,6 +86,9 @@ class Button extends \yii\base\Widget
         return $class;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function baseClass()
     {
         return ['mdl-button', 'mdl-js-button', 'mdl-button--raised'];
