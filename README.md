@@ -32,8 +32,10 @@ Asset
 register this asset on your own layout.
 
 ```php
-<?= use lismansihotang\mdl\assets\BaseAsset; ?>
-<?= BaseAsset::register($this); ?>
+<?php
+use lismansihotang\mdl\assets\BaseAsset;
+BaseAsset::register($this); 
+?>
 ```
 
 Button
