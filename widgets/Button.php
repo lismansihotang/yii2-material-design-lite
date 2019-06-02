@@ -10,7 +10,7 @@
 use yii\base\Widget;
 use yii\helpers\Html;
 
-namespace lismansihotang\mdl\widget;
+namespace lismansihotang\mdl\widgets;
 
 class Button extends Widget
 {
