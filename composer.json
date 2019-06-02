@@ -2,8 +2,18 @@
     "name": "lismansihotang/yii2-material-design-lite",
     "description": "Material Design Lite for Yii2",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","yii2-extension","material","design","lite","material-design","material-design-lite"],
+    "keywords": [
+        "yii2",
+        "extension",
+        "yii2-extension",
+        "material",
+        "design",
+        "lite",
+        "material-design",
+        "material-design-lite"
+    ],
     "license": "MIT",
+    "issues": "https://github.com/lismansihotang/yii2-material-design-lite/issues",
     "authors": [
         {
             "name": "Lisman Sihotang",
