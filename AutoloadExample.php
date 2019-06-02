@@ -1,6 +1,6 @@
 <?php
 
-namespace lismansihotang\mdl\;
+namespace lismansihotang\mdl;
 
 /**
  * This is just an example.
