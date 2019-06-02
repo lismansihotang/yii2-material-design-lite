@@ -40,6 +40,6 @@ BaseAsset::register($this);
 
 Button
 -----
-
+Create your simply button.
 ```php
 <?= \lismansihotang\mdl\widgets\Button::widget(['content' => ['label' => 'button']]); ?>
