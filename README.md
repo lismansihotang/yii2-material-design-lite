@@ -29,7 +29,7 @@ Once the extension is installed, simply use it in your code by  :
 
 Asset
 -----
-register this asset on your own layout.
+Register this asset on your own layout. for any purpose custom you can do it by your self, just see on : https://getmdl.io/components/index.html
 
 ```php
 <?php
