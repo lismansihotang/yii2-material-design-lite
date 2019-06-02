@@ -16,15 +16,29 @@ use yii\web\JsExpression;
 
 class Button extends \yii\base\Widget
 {
+    /**
+     * $var array $options
+     * - 'class'
+     * - 'id'
+     */
     public $options = [
         'class' => null,
         'id' => null
     ];
+    /**
+     * $var array $content
+     */
     public $content = [
         'label' => null,
         'action' => null
     ];
+    /**
+     * $var type $effect
+     */
     public $effect = null;
+    /**
+     * $var type $submit
+     */
     public $submit = false;
 
     public function run()
