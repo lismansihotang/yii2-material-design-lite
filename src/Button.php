@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright Copyright &copy; lismansihotang/yii2-material-design-lite, 2019
- * @package Widget/button
+ * @package Button
  * @version 1.0.0
  * @author Lisman Tua Sihotang <lisman.sihotang@gmail.com>
  * @resource https://getmdl.io/components/index.html#buttons-section
