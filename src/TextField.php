@@ -4,7 +4,7 @@
  * @package TextField
  * @version 1.0.0
  * @author Lisman Tua Sihotang <lisman.sihotang@gmail.com>
- * @resource https://getmdl.io/components/index.html#buttons-section
+ * @resource https://getmdl.io/components/index.html#textfields-section
  */
 
 namespace lismansihotang\mdl\src;
