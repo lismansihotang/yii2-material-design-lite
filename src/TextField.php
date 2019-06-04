@@ -45,17 +45,23 @@ class TextField extends \yii\widgets\InputWidget
 
     public $type = 'text';
 
+    public $label = 'Label';
+
     public function run()
     {
-
-        if (array_key_exists('class', $this->options) === true) {
-            $this->options['class'] = 'mdl-textfield__input';
-        }
+        $this->options['class'] = 'mdl-textfield__input';
 
         $this->view->registerCss('.mdl-textfield{width: 100%;} .mdl-textfield__label::after{bottom: 15px!important;}');
         $this->view->registerJs(new JsExpression('$("#' . $this->options['id'] . '").on("focusout", function(){
             $(".field-' . $this->options['id'] . '").find(".mdl-textfield__error").css("visibility","visible");
         });'));
-        echo $this->renderInputHtml($this->type) . Html::tag('label', Html::activeLabel($this->model, $this->attribute), ['class' => 'mdl-textfield__label', 'for' => $this->options['id']]);
+
+        if ($this->hasModel()) {
+            echo $this->renderInputHtml($this->type) . Html::tag('label', Html::activeLabel($this->model, $this->attribute), ['class' => 'mdl-textfield__label', 'for' => $this->options['id']]);
+        } else {
+            echo Html::beginTag('div', ['class' => 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label']);
+            echo $this->renderInputHtml($this->type) . Html::tag('label', $this->label, ['class' => 'mdl-textfield__label', 'for' => $this->options['id']]);
+            echo Html::endTag('div');
+        }
     }
 }
