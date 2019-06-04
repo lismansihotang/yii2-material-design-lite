@@ -48,6 +48,18 @@ Create your simply button.
 TextField
 -----
 Create your simply textfield.
+
+without any model
 ```php
 <?= \lismansihotang\mdl\src\TextField::widget(['name'=>'field-name', 'label'=>'For Label']); ?>
+```
+
+with model
+```php
+<?php $form = ActiveForm::begin([
+        'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
+    ]); ?>
+<?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(TextField::className(), [
+        'options' => ['type' => 'textfield']
+    ]) ?>
 ```
