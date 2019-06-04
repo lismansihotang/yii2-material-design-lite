@@ -60,8 +60,15 @@ with model
         'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
     ]); ?>
 
-    
+
 <?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(TextField::className(), [
         'options' => ['type' => 'textfield']
     ]) ?>
+```
+
+Badge
+-----
+Create your simply badge.
+```php
+<?= \lismansihotang\mdl\src\Badge::widget(['type_icon' => true, 'label' => 'account_box', 'options' => ['data-badge' => '2']]); ?>
 ```
