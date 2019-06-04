@@ -7,15 +7,19 @@
  * @resource https://getmdl.io/components/index.html#buttons-section
  */
 
-//use lismansihotang\mdl\helpers\Html;
-
-namespace lismansihotang\mdl\widgets;
+namespace lismansihotang\mdl\src;
 
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
 class Button extends \yii\base\Widget
 {
+    const TYPE_DEFAULT = ['mdl-button', 'mdl-js-button'];
+    const TYPE_FAB = ['mdl-button', 'mdl-js-button', 'mdl-button--fab'];
+    const TYPE_MINI_FAB = ['mdl-button', 'mdl-js-button', 'mdl-button--fab', 'mdl-button--mini-fab'];
+    const TYPE_RAISED = ['mdl-button', 'mdl-js-button', 'mdl-button--raised'];
+    const TYPE_ICON = ['mdl-button', 'mdl-js-button', 'mdl-button--icon'];
+
     /**
      * $var array $options
      * - 'class'
@@ -30,7 +34,9 @@ class Button extends \yii\base\Widget
      */
     public $content = [
         'label' => null,
-        'action' => null
+        'action' => null,
+        'type' => self::TYPE_DEFAULT,
+        'icon' => null
     ];
     /**
      * $var type $effect
@@ -40,6 +46,8 @@ class Button extends \yii\base\Widget
      * $var type $submit
      */
     public $submit = false;
+
+    public $disabled = false;
 
     /**
      * {@inheritdoc}
@@ -53,7 +61,31 @@ class Button extends \yii\base\Widget
                 window.location.href = "' . Url::to($this->content['action']) . '";
             });'));
         }
-        return \yii\helpers\Html::tag(($this->submit) ? 'submit' : 'button', $this->content['label'], $this->options);
+        $this->disabledButton();
+        return \yii\helpers\Html::tag(($this->submit) ? 'submit' : 'button', $this->getIcon() . $this->content['label'], $this->options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function disabledButton()
+    {
+        if ($this->disabled === true) {
+            return $this->options['disabled'] = 'disabled';
+        }
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIcon()
+    {
+        $icon = null;
+        if (array_key_exists('icon', $this->content) === true) {
+            $icon = \yii\helpers\Html::tag('i', $this->content['icon'], ['class' => 'material-icons']);
+        }
+        return $icon;
     }
 
     /**
@@ -65,7 +97,7 @@ class Button extends \yii\base\Widget
             'accent' => 'mdl-button--accent',
             'colored' => 'mdl-button--colored',
             'primary' => 'mdl-button--primary',
-            'rippleEffect' => 'mdl-js-ripple-effect',
+            'ripple-effect' => 'mdl-js-ripple-effect',
         ];
         $effect = 'mdl-button--accent';
         if (array_key_exists($id, $arrEffect) === true) {
@@ -91,6 +123,10 @@ class Button extends \yii\base\Widget
      */
     protected function baseClass()
     {
-        return ['mdl-button', 'mdl-js-button', 'mdl-button--raised'];
+        $type = self::TYPE_RAISED;
+        if (array_key_exists('type', $this->content) === true) {
+            $type = $this->content['type'];
+        }
+        return $type;
     }
 }

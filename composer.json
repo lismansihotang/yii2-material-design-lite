@@ -13,7 +13,9 @@
         "material-design-lite"
     ],
     "license": "MIT",
-    "issues": "https://github.com/lismansihotang/yii2-material-design-lite/issues",
+    "support": {
+        "issues": "https://github.com/lismansihotang/yii2-material-design-lite/issues"
+    },
     "authors": [
         {
             "name": "Lisman Sihotang",
