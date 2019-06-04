@@ -59,6 +59,8 @@ with model
 <?php $form = ActiveForm::begin([
         'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
     ]); ?>
+
+    
 <?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(TextField::className(), [
         'options' => ['type' => 'textfield']
     ]) ?>
