@@ -284,6 +284,13 @@ class ActiveField extends \yii\widgets\ActiveField
                     $this->options['class'] = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label';
                     $this->errorOptions = ['class' => 'mdl-textfield__error', 'tag' => 'span'];
                 }
+
+                if (array_key_exists('type', $config['options']) === true && $config['options']['type'] === 'checkbox') {
+                    $this->parts['{label}'] = null;
+                    $config['options']['class'] = 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect';
+                    $this->options = ['class' => 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', 'tag' => 'label', 'for' => Html::getInputId($config['model'], $config['attribute'])];
+                    $this->errorOptions = ['class' => 'mdl-textfield__error', 'tag' => 'span'];
+                }
                 $this->addAriaAttributes($config['options']);
                 $this->adjustLabelFor($config['options']);
             }
