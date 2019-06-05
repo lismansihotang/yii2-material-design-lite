@@ -72,3 +72,16 @@ Create your simply badge.
 ```php
 <?= \lismansihotang\mdl\src\Badge::widget(['type_icon' => true, 'label' => 'account_box', 'options' => ['data-badge' => '2']]); ?>
 ```
+
+Card
+-----
+Create your simply card.
+```php
+<?= \lismansihotang\mdl\src\Card::widget([
+    'title' => 'Welcome',
+    'image' => Yii::getAlias('@web') . '/images/welcome_card.jpg',
+    'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...',
+    'button' => ['label' => 'Get Started','action' => ['site/index'],'icon' => 'event'],
+    'menu' => ['icon' => 'share','action' => ['sample/action']],
+    'options' => ['type' => Card::TYPE_EVENT]]); ?>
+```
