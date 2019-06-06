@@ -339,6 +339,12 @@ class ActiveField extends \yii\widgets\ActiveField
                     'error' => 'mdl-textfield__error', 'tag' => 'label'
                 ];
                 break;
+            case 'switchToggle':
+                $config = [
+                    'class' => 'mdl-switch mdl-js-switch mdl-js-ripple-effect',
+                    'error' => 'mdl-textfield__error', 'tag' => 'label'
+                ];
+                break;
             default:
                 $config = [
                     'class' => 'form-group', 'error' => 'help-block', 'tag' => 'div'

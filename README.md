@@ -129,6 +129,27 @@ with model
     ]) ?>
 ```
 
+Switch
+-----
+Create your simply switch.
+
+without any model
+```php
+<?= \lismansihotang\mdl\src\SwitchToggle::widget(['name' => 'switch-toggle', 'label' => null]); ?>
+```
+
+with model
+```php
+<?php $form = ActiveForm::begin([
+        'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
+    ]); ?>
+
+
+<?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(SwitchToggle::className(), [
+        'options' => ['widget' => 'switchToggle','label' => null]
+    ]) ?>
+```
+
 Badge
 -----
 Create your simply badge.
