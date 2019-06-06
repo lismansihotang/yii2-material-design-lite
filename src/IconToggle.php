@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright Copyright &copy; lismansihotang/yii2-material-design-lite, 2019
- * @package RadioButton
+ * @package IconToggle
  * @version 1.0.0
  * @author Lisman Tua Sihotang <lisman.sihotang@gmail.com>
  * @resource https://getmdl.io/components/index.html#toggles-section
@@ -13,7 +13,7 @@ use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\web\JsExpression;
 
-class RadioButton extends \yii\widgets\InputWidget
+class IconToggle extends \yii\widgets\InputWidget
 {
     /**
      * @var \lismansihotang\mdl\src\ActiveField active input field, which triggers this widget rendering.
@@ -46,7 +46,7 @@ class RadioButton extends \yii\widgets\InputWidget
     /**
      * @var string the type widget.
      */
-    public $type = 'radio';
+    public $type = 'checkbox';
 
     /**
      * @var string the default value.
@@ -58,22 +58,22 @@ class RadioButton extends \yii\widgets\InputWidget
      */
     public function run()
     {
-        $this->options['class'] = 'mdl-radio__button';
+        $this->options['class'] = 'mdl-icon-toggle__input';
 
-        $this->view->registerCss('.mdl-radio{margin-bottom: 25px;}');
+        $this->view->registerCss('.mdl-checkbox{margin-bottom: 25px;} .mdl-textfield__error{min-width: 400px;}');
         $this->view->registerJs(new JsExpression('
         $("#' . $this->options['id'] . '").on("focusout", function(){
             $(".field-' . $this->options['id'] . '").find(".mdl-textfield__error").css("visibility","visible");
         });
-        var label = $("span.mdl-radio__label").find("label").html();
-        $("span.mdl-radio__label").html(label); $("span.mdl-radio__label").find("label").remove();
+        var label = $("span.mdl-icon-toggle__label").find("label").html();
+        $("span.mdl-icon-toggle__label").html(label); $("span.mdl-icon-toggle__label").find("label").remove();
         '));
-        
+
         if ($this->hasModel()) {
-            echo $this->renderInputHtml($this->type) . Html::tag('span', Html::activeLabel($this->model, $this->attribute), ['class' => 'mdl-radio__label']);
+            echo $this->renderInputHtml($this->type) . Html::tag('span', isset($this->options['label']) ? $this->options['label'] : null, ['class' => 'mdl-icon-toggle__label material-icons']);
         } else {
-            echo Html::beginTag('label', ['class' => 'mdl-radio mdl-js-radio mdl-js-ripple-effect', 'for' => $this->options['id']]);
-            echo $this->renderInputHtml($this->type) . Html::tag('span', $this->label, ['class' => 'mdl-radio__label']);
+            echo Html::beginTag('label', ['class' => 'mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect', 'for' => $this->options['id']]);
+            echo $this->renderInputHtml($this->type) . Html::tag('span', $this->label, ['class' => 'mdl-icon-toggle__label material-icons']);
             echo Html::endTag('label');
         }
     }

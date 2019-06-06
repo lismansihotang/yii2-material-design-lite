@@ -62,7 +62,7 @@ with model
 
 
 <?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(TextField::className(), [
-        'options' => ['type' => 'textfield']
+        'options' => ['widget' => 'textfield']
     ]) ?>
 ```
 
@@ -83,7 +83,7 @@ with model
 
 
 <?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(Checkbox::className(), [
-        'options' => ['type' => 'checkbox']
+        'options' => ['widget' => 'checkbox']
     ]) ?>
 ```
 
@@ -104,7 +104,28 @@ with model
 
 
 <?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(RadioButton::className(), [
-        'options' => ['type' => 'radio']
+        'options' => ['widget' => 'radio']
+    ]) ?>
+```
+
+Icon Toggle
+-----
+Create your simply icon toggle.
+
+without any model
+```php
+<?= \lismansihotang\mdl\src\IconToggle::widget(['name' => 'icon-toggle', 'label' => 'format_bold']); ?>
+```
+
+with model
+```php
+<?php $form = ActiveForm::begin([
+        'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
+    ]); ?>
+
+
+<?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(IconToggle::className(), [
+        'options' => ['widget' => 'iconToggle','label' => 'format_bold']
     ]) ?>
 ```
 

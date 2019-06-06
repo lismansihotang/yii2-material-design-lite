@@ -284,7 +284,7 @@ class ActiveField extends \yii\widgets\ActiveField
                 $this->adjustLabelFor($config['options']);
             }
         }
-        
+
         $this->parts['{input}'] = $class::widget($config);
 
         return $this;
@@ -297,8 +297,8 @@ class ActiveField extends \yii\widgets\ActiveField
      */
     protected function setClassWidget($config = [])
     {
-        if (array_key_exists('type', $config['options']) === true) {
-            $configWidget = $this->listOfWidget($config['options']['type']);
+        if (array_key_exists('widget', $config['options']) === true) {
+            $configWidget = $this->listOfWidget($config['options']['widget']);
             $config['options'] = ['class' => $configWidget['class']];
             $this->options = ['class' => $configWidget['class'], 'tag' => $configWidget['tag'], 'for' => Html::getInputId($config['model'], $config['attribute'])];
             $this->errorOptions = ['class' => $configWidget['error'], 'tag' => 'span'];
@@ -330,6 +330,12 @@ class ActiveField extends \yii\widgets\ActiveField
             case 'radio':
                 $config = [
                     'class' => 'mdl-radio mdl-js-radio mdl-js-ripple-effect',
+                    'error' => 'mdl-textfield__error', 'tag' => 'label'
+                ];
+                break;
+            case 'iconToggle':
+                $config = [
+                    'class' => 'mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect',
                     'error' => 'mdl-textfield__error', 'tag' => 'label'
                 ];
                 break;
