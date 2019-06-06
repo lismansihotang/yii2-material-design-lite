@@ -20,6 +20,9 @@ class Badge extends \yii\base\Widget
     public $options = [];
     public $label = null;
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->options['class'] = ($this->type_icon) ? self::TYPE_ICON : self::TYPE_DEFAULT;

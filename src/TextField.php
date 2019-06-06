@@ -43,10 +43,19 @@ class TextField extends \yii\widgets\InputWidget
      */
     public $options = [];
 
+    /**
+     * @var string the type widget.
+     */
     public $type = 'text';
 
+    /**
+     * @var string the default value.
+     */
     public $label = 'Label';
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->options['class'] = 'mdl-textfield__input';

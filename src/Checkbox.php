@@ -43,10 +43,19 @@ class Checkbox extends \yii\widgets\InputWidget
      */
     public $options = [];
 
+    /**
+     * @var string the type widget.
+     */
     public $type = 'checkbox';
 
+    /**
+     * @var string the default value.
+     */
     public $label = 'Label';
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->options['class'] = 'mdl-checkbox__input';

@@ -11,6 +11,7 @@ namespace lismansihotang\mdl\src;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use yii\widgets\Breadcrumbs;
 
 class ActiveField extends \yii\widgets\ActiveField
 {
@@ -278,19 +279,7 @@ class ActiveField extends \yii\widgets\ActiveField
                 if ($this->form->validationStateOn === ActiveForm::VALIDATION_STATE_ON_INPUT) {
                     $this->addErrorClassIfNeeded($config['options']);
                 }
-
-                if (array_key_exists('type', $config['options']) === true && $config['options']['type'] === 'textfield') {
-                    $config['options']['class'] = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label';
-                    $this->options['class'] = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label';
-                    $this->errorOptions = ['class' => 'mdl-textfield__error', 'tag' => 'span'];
-                }
-
-                if (array_key_exists('type', $config['options']) === true && $config['options']['type'] === 'checkbox') {
-                    $this->parts['{label}'] = null;
-                    $config['options']['class'] = 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect';
-                    $this->options = ['class' => 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect', 'tag' => 'label', 'for' => Html::getInputId($config['model'], $config['attribute'])];
-                    $this->errorOptions = ['class' => 'mdl-textfield__error', 'tag' => 'span'];
-                }
+                $this->setClassWidget($config);
                 $this->addAriaAttributes($config['options']);
                 $this->adjustLabelFor($config['options']);
             }
@@ -299,5 +288,50 @@ class ActiveField extends \yii\widgets\ActiveField
         $this->parts['{input}'] = $class::widget($config);
 
         return $this;
+    }
+
+    /**
+     * setClassWidget
+     * function for set a class of widget.
+     * @param array $config name-value pairs that will be used to initialize the widget.
+     */
+    protected function setClassWidget($config = [])
+    {
+        if (array_key_exists('type', $config['options']) === true) {
+            $configWidget = $this->listOfWidget($config['options']['type']);
+            $config['options'] = ['class' => $configWidget['class']];
+            $this->options = ['class' => $configWidget['class'], 'tag' => $configWidget['tag'], 'for' => Html::getInputId($config['model'], $config['attribute'])];
+            $this->errorOptions = ['class' => $configWidget['error'], 'tag' => 'span'];
+            return true;
+        }
+        return true;
+    }
+
+    /**
+     * listOfWidget
+     * function list of class for using in widget
+     * @param string $widgetName
+     */
+    protected function listOfWidget($widgetName)
+    {
+        switch ($widgetName) {
+            case 'textfield':
+                $config = [
+                    'class' => 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label',
+                    'error' => 'mdl-textfield__error', 'tag' => 'div'
+                ];
+                break;
+            case 'checkbox':
+                $config = [
+                    'class' => 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect',
+                    'error' => 'mdl-textfield__error', 'tag' => 'label'
+                ];
+                break;
+            default:
+                $config = [
+                    'class' => 'form-group', 'error' => 'help-block', 'tag' => 'div'
+                ];
+        };
+        return $config;
     }
 }

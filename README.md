@@ -66,6 +66,27 @@ with model
     ]) ?>
 ```
 
+Checkbox
+-----
+Create your simply checkbox.
+
+without any model
+```php
+<?= \lismansihotang\mdl\src\Checkbox::widget(['name' => 'is_ok', 'label' => 'Yes']); ?>
+```
+
+with model
+```php
+<?php $form = ActiveForm::begin([
+        'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
+    ]); ?>
+
+
+<?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(Checkbox::className(), [
+        'options' => ['type' => 'checkbox']
+    ]) ?>
+```
+
 Badge
 -----
 Create your simply badge.
