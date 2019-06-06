@@ -51,12 +51,14 @@ class Checkbox extends \yii\widgets\InputWidget
     {
         $this->options['class'] = 'mdl-checkbox__input';
 
-        $this->view->registerCss('.mdl-checkbox{margin-bottom: 30px;}');
-        $this->view->registerJs(new JsExpression('$("#' . $this->options['id'] . '").on("focusout", function(){
+        $this->view->registerCss('.mdl-checkbox{margin-bottom: 25px;}');
+        $this->view->registerJs(new JsExpression('
+        $("#' . $this->options['id'] . '").on("focusout", function(){
             $(".field-' . $this->options['id'] . '").find(".mdl-textfield__error").css("visibility","visible");
-        });'));
-        $this->view->registerJs(new JsExpression('var label = $("span.mdl-checkbox__label").find("label").html();
-        $("span.mdl-checkbox__label").html(label); $("span.mdl-checkbox__label").find("label").remove();'));
+        });
+        var label = $("span.mdl-checkbox__label").find("label").html();
+        $("span.mdl-checkbox__label").html(label); $("span.mdl-checkbox__label").find("label").remove();
+        '));
 
         if ($this->hasModel()) {
             echo $this->renderInputHtml($this->type) . Html::tag('span', Html::activeLabel($this->model, $this->attribute), ['class' => 'mdl-checkbox__label']);
