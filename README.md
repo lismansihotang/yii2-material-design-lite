@@ -87,6 +87,27 @@ with model
     ]) ?>
 ```
 
+Radio Button
+-----
+Create your simply radio.
+
+without any model
+```php
+<?= \lismansihotang\mdl\src\RadioButton::widget(['name' => 'is_ok', 'label' => 'Yes', 'value'=>'1']); ?>
+```
+
+with model
+```php
+<?php $form = ActiveForm::begin([
+        'fieldClass' => '\lismansihotang\mdl\src\ActiveField'
+    ]); ?>
+
+
+<?= $form->field($model, 'field', ['template' => '{input}{hint}{error}'])->widget(RadioButton::className(), [
+        'options' => ['type' => 'radio']
+    ]) ?>
+```
+
 Badge
 -----
 Create your simply badge.

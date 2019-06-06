@@ -284,7 +284,7 @@ class ActiveField extends \yii\widgets\ActiveField
                 $this->adjustLabelFor($config['options']);
             }
         }
-
+        
         $this->parts['{input}'] = $class::widget($config);
 
         return $this;
@@ -324,6 +324,12 @@ class ActiveField extends \yii\widgets\ActiveField
             case 'checkbox':
                 $config = [
                     'class' => 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect',
+                    'error' => 'mdl-textfield__error', 'tag' => 'label'
+                ];
+                break;
+            case 'radio':
+                $config = [
+                    'class' => 'mdl-radio mdl-js-radio mdl-js-ripple-effect',
                     'error' => 'mdl-textfield__error', 'tag' => 'label'
                 ];
                 break;

@@ -13,6 +13,7 @@ class BaseAsset extends \yii\web\AssetBundle
         'material.min.js',
     ];
     public $depends = [
-        'yii\web\JqueryAsset'
+        'yii\web\JqueryAsset',
+        'yii\bootstrap\BootstrapPluginAsset'
     ];
 }
